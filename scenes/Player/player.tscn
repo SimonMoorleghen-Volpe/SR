@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpxsreab1gn6l"]
+
+[ext_resource type="Script" path="res://scripts/entities/player/player.cs" id="1_7ahly"]
+[ext_resource type="SpriteFrames" uid="uid://bftfy6ifm85n" path="res://resources/Player/Player_spriteframes.tres" id="1_n867c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brsum"]
+size = Vector2(31, 32)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_7ahly")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2.27374e-13, 0)
+scale = Vector2(0.969697, 0.996786)
+sprite_frames = ExtResource("1_n867c")
+animation = &"jump"
+autoplay = "default"
+frame = 9
+frame_progress = 1.0
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_brsum")

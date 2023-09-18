@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpxsreab1gn6l"]
+[gd_scene load_steps=5 format=3 uid="uid://bpxsreab1gn6l"]
 
-[ext_resource type="Script" path="res://scripts/entities/player/player.cs" id="1_7ahly"]
+[ext_resource type="Script" path="res://scripts/entities/player/Player.cs" id="1_g2ybr"]
 [ext_resource type="SpriteFrames" uid="uid://bftfy6ifm85n" path="res://resources/Player/Player_spriteframes.tres" id="1_n867c"]
+[ext_resource type="Script" path="res://scripts/Control/State_Machine.cs" id="3_wyrtp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brsum"]
 size = Vector2(31, 32)
 
 [node name="player" type="CharacterBody2D"]
-script = ExtResource("1_7ahly")
+script = ExtResource("1_g2ybr")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -21,3 +22,6 @@ frame_progress = 1.0
 
 [node name="collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_brsum")
+
+[node name="state machine" type="Node" parent="."]
+script = ExtResource("3_wyrtp")

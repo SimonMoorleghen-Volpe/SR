@@ -1,5 +1,5 @@
 
-public enum PlayerStates
+public enum Player_States
 {
 	none=-1,
 	idle=0,

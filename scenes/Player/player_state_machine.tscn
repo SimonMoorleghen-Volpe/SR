@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfox2i2lxddm5"]
+[gd_scene load_steps=7 format=3 uid="uid://bfox2i2lxddm5"]
 
 [ext_resource type="Script" path="res://scripts/Control/State_Machine.cs" id="1_q5k84"]
 [ext_resource type="Script" path="res://scripts/entities/player/Player_Idle.cs" id="2_b72mj"]
 [ext_resource type="Script" path="res://scripts/entities/player/Player_Walk.cs" id="3_syvce"]
+[ext_resource type="Script" path="res://scripts/entities/player/Player_Run.cs" id="4_xj816"]
+[ext_resource type="Script" path="res://scripts/entities/player/Player_Jump.cs" id="5_2d0ul"]
+[ext_resource type="Script" path="res://scripts/entities/player/Player_Fall.cs" id="6_7o63k"]
 
 [node name="state machine" type="Node"]
 script = ExtResource("1_q5k84")
@@ -16,7 +19,10 @@ script = ExtResource("3_syvce")
 State_ID = 1
 
 [node name="run" type="Node" parent="."]
+script = ExtResource("4_xj816")
 
 [node name="jump" type="Node" parent="."]
+script = ExtResource("5_2d0ul")
 
 [node name="fall" type="Node" parent="."]
+script = ExtResource("6_7o63k")

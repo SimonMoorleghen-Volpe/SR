@@ -10,6 +10,13 @@ public partial class PlayerState : Node
 		SetMeta("PlayerState", true);
 	}
 
+	public void Enter(){}
+
+	public void Exit(){}
+	public Player_States Take_Input(InputEvent @event){
+		return Player_States.none;
+	}
+
 	public Player_States Operate(double delta){
 		return Player_States.none;
 	}

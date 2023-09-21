@@ -1,19 +1,32 @@
 using System;
+using System.Collections.Generic;
 using Godot;
 
 
 public partial class State_Machine : Node {
     public override void _Ready(){
         SetMeta("brain", true);
-        PlayerStates = new PlayerState[Enum.GetNames(typeof(Player_States)).Length];
+        
         Godot.Collections.Array<Node> childArray = GetChildren();
+        PlayerStates = new PlayerState[childArray.Count];
+        byte i = 0;
         foreach(Node child in childArray){
             if(child.HasMeta("PlayerState")){
-                PlayerStates[(int)((PlayerState)child).State_ID] = (PlayerState)child;
+                PlayerStates[i] = (PlayerState)child;
+                StateDictionary.Add(PlayerStates[i].State_ID, i);
+                i++;
             }
         }
+        CurrentState = PlayerStates[StateDictionary["idle"]];
+        GD.Print(StateDictionary);
+    }
+
+    public void PlayerProcess(double delta){
+        CurrentState.Operate(delta);
     }
 
     private PlayerState[] PlayerStates;
+    private Dictionary<String, byte> StateDictionary = new();
+    private PlayerState CurrentState;
 
 }

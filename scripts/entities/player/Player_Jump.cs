@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Player_Jump : Node
+public partial class Player_Jump : PlayerState
 {
 
 }

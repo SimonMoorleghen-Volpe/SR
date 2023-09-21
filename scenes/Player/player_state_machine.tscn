@@ -12,17 +12,20 @@ script = ExtResource("1_q5k84")
 
 [node name="idle" type="Node" parent="."]
 script = ExtResource("2_b72mj")
-State_ID = 0
+State_ID = "idle"
 
 [node name="walk" type="Node" parent="."]
 script = ExtResource("3_syvce")
-State_ID = 1
+State_ID = "walk"
 
 [node name="run" type="Node" parent="."]
 script = ExtResource("4_xj816")
+State_ID = "run"
 
 [node name="jump" type="Node" parent="."]
 script = ExtResource("5_2d0ul")
+State_ID = "jump"
 
 [node name="fall" type="Node" parent="."]
 script = ExtResource("6_7o63k")
+State_ID = "fall"

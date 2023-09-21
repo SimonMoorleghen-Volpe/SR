@@ -3,8 +3,8 @@ using System;
 
 public partial class PlayerState : Node
 {
-	[Export]
-	public Player_States State_ID = Player_States.none;
+	[Export ]
+	public String State_ID = "none";
 	public override void _Ready()
 	{
 		SetMeta("PlayerState", true);

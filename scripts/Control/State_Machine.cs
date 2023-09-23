@@ -18,7 +18,6 @@ public partial class State_Machine : Node {
             }
         }
         CurrentState = PlayerStates[StateDictionary["idle"]];
-        GD.Print(StateDictionary);
     }
 
     public void PlayerProcess(double delta){

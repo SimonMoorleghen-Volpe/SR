@@ -9,5 +9,9 @@ public partial class Player_Idle : PlayerState
 		base._Ready();
 	}
 
+    public override string Operate(double delta)
+    {
+        return null;
+    }
 
 }

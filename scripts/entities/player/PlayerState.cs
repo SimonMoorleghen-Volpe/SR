@@ -27,7 +27,7 @@ public partial class PlayerState : Node
 	}
 
 	protected virtual void Apply_Gravity(double delta){
-		
+		Player.Velocity += Vector2.Down * Player.FallGravity;
 	}
 
 }

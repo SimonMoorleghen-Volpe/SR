@@ -14,6 +14,7 @@ public partial class State_Machine : Node {
             if(child.HasMeta("PlayerState")){
                 PlayerStates[i] = (PlayerState)child;
                 StateDictionary.Add(PlayerStates[i].State_ID, i);
+                PlayerStates[i].Set_Controller(GetOwner<Player>());
                 i++;
             }
         }
@@ -25,7 +26,7 @@ public partial class State_Machine : Node {
     }
 
     private PlayerState[] PlayerStates;
-    private Dictionary<String, byte> StateDictionary = new();
+    private readonly Dictionary<String, byte> StateDictionary = new();
     private PlayerState CurrentState;
 
 }

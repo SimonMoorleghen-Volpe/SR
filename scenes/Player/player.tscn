@@ -8,6 +8,8 @@
 size = Vector2(31, 32)
 
 [node name="player" type="CharacterBody2D"]
+collision_mask = 12
+floor_snap_length = 6.0
 script = ExtResource("1_g2ybr")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
@@ -24,3 +26,8 @@ frame_progress = 1.0
 shape = SubResource("RectangleShape2D_brsum")
 
 [node name="state machine" parent="." instance=ExtResource("3_ue2lk")]
+
+[node name="groundcheck" type="RayCast2D" parent="."]
+position = Vector2(-15, 17)
+target_position = Vector2(30, 0)
+metadata/groundCheck = false

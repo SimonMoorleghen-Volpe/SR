@@ -18,6 +18,13 @@ config/icon="res://icon.svg"
 
 project/assembly_name="SR"
 
+[layer_names]
+
+2d_physics/layer_1="Player collision"
+2d_physics/layer_2="Player hurtbox"
+2d_physics/layer_3="Static terrain"
+2d_physics/layer_4="Drop through terrain"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

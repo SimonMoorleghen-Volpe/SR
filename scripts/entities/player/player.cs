@@ -10,8 +10,12 @@ public partial class Player : CharacterBody2D
 	{
 		Godot.Collections.Array<Node> childList = GetChildren();
 		foreach(Node child in childList){
-			if(child.HasMeta("brain")){
+			Godot.Collections.Array<Godot.StringName> childMeta = child.GetMetaList();
+			if(childMeta.Contains("brain")){
 				Controller = (State_Machine)child;
+			} else if (childMeta.Contains("groundCheck")){
+				GroundCheck = (RayCast2D)child;
+				GroundCheck.CollisionMask = 12;
 			}
 		}
 		if(Controller == null){
@@ -19,6 +23,7 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
+	public bool Check_Ground(){	if(GroundCheck.IsColliding()){return true;}	return false; }
 
 	
 	public override void _Process(double delta)
@@ -32,7 +37,7 @@ public partial class Player : CharacterBody2D
 	public float JumpGravity {get; private set;}  = 0f;
 	public float FallGravity {get; private set;} = 0f;
 	private State_Machine Controller;
-
+	private RayCast2D GroundCheck;
 	
 
 }

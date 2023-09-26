@@ -6,13 +6,13 @@ public partial class PlayerState : Node
 	[Export ]
 	public String State_ID = "none";
 
-	private Player Player;
+	protected Player Body;
 	public override void _Ready()
 	{
 		SetMeta("PlayerState", true);
 	}
 
-	public void Set_Player(Player controller){Player = controller;}
+	public void Set_Controller(Player controller){Body = controller;}
 
 	public void Enter(){}
 
@@ -27,7 +27,7 @@ public partial class PlayerState : Node
 	}
 
 	protected virtual void Apply_Gravity(double delta){
-		Player.Velocity += Vector2.Down * Player.FallGravity;
+		Body.Velocity += Vector2.Down * Body.FallGravity;
 	}
 
 }

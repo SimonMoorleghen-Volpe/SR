@@ -11,6 +11,7 @@ public partial class Player_Idle : PlayerState
 
     public override string Operate(double delta)
     {
+		if(!Body.Check_Ground()){ GD.Print("Falling");}
         return null;
     }
 

@@ -14,9 +14,9 @@ public partial class PlayerState : Node
 
 	public void Set_Controller(Player controller){Body = controller;}
 
-	public void Enter(){}
+	public virtual void Enter(){}
 
-	public void Exit(){}
+	public virtual void Exit(){}
 
 	public virtual string Take_Input(InputEvent @event){
 		return null;

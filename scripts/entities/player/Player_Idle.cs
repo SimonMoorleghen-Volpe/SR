@@ -9,9 +9,13 @@ public partial class Player_Idle : PlayerState
 		base._Ready();
 	}
 
+	public override void Enter(){
+		GD.Print("Idle");
+	}
+
     public override string Operate(double delta)
     {
-		if(!Body.Check_Ground()){ GD.Print("Falling");}
+		if(!Body.Check_Ground()){ return "fall";}
         return null;
     }
 

@@ -21,8 +21,19 @@ public partial class State_Machine : Node {
         CurrentState = PlayerStates[StateDictionary["idle"]];
     }
 
+    private void Change_State(string NewState){
+        if(NewState == null){  return;  }
+        if(!StateDictionary.ContainsKey(NewState)){
+            return;
+        }
+        CurrentState.Exit();
+        CurrentState = PlayerStates[StateDictionary[NewState]];
+        CurrentState.Enter();
+
+    }
+
     public void PlayerProcess(double delta){
-        CurrentState.Operate(delta);
+        Change_State(CurrentState.Operate(delta));
     }
 
     private PlayerState[] PlayerStates;

@@ -30,4 +30,16 @@ shape = SubResource("RectangleShape2D_brsum")
 [node name="groundcheck" type="RayCast2D" parent="."]
 position = Vector2(-15, 17)
 target_position = Vector2(30, 0)
+collision_mask = 12
+hit_from_inside = true
 metadata/groundCheck = false
+
+[node name="leftwallCheck" type="RayCast2D" parent="."]
+position = Vector2(-16, -14)
+target_position = Vector2(0, 28)
+collision_mask = 4
+
+[node name="rightwallCheck" type="RayCast2D" parent="."]
+position = Vector2(16, -14)
+target_position = Vector2(0, 28)
+collision_mask = 4

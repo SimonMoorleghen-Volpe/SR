@@ -29,6 +29,7 @@ public partial class Player : CharacterBody2D
 	public override void _Process(double delta)
 	{
 		Controller.PlayerProcess(delta);
+		MoveAndSlide();
 	}
 
 	public float WalkSpeed {get; private set;} = 0f;

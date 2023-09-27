@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://brt8rme6mv48v"]
+[gd_scene load_steps=4 format=3 uid="uid://brt8rme6mv48v"]
 
 [ext_resource type="PackedScene" uid="uid://bpxsreab1gn6l" path="res://scenes/Player/player.tscn" id="1_440pf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hnmtw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1enbh"]
 size = Vector2(1155, 20)
@@ -14,7 +16,12 @@ position = Vector2(317, 26)
 position = Vector2(2, 145)
 collision_layer = 12
 collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_hnmtw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(575, 222)
 shape = SubResource("RectangleShape2D_1enbh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(348, 198)
+zoom = Vector2(3, 3)

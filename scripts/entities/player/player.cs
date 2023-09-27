@@ -25,9 +25,9 @@ public partial class Player : CharacterBody2D
 
 	public bool Check_Ground(){	if(GroundCheck.IsColliding()){return true;}	return false; }
 
-	
 	public override void _Process(double delta)
 	{
+
 		Controller.PlayerProcess(delta);
 		MoveAndSlide();
 	}

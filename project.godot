@@ -12,7 +12,14 @@ config_version=5
 
 config/name="SR"
 config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/resizable=false
 
 [dotnet]
 
@@ -24,6 +31,11 @@ project/assembly_name="SR"
 2d_physics/layer_2="Player hurtbox"
 2d_physics/layer_3="Static terrain"
 2d_physics/layer_4="Drop through terrain"
+
+[physics]
+
+common/physics_jitter_fix=0.0
+2d/physics_engine="GodotPhysics2D"
 
 [rendering]
 

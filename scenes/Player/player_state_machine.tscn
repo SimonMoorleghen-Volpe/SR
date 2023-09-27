@@ -28,4 +28,6 @@ State_ID = "jump"
 
 [node name="fall" type="Node" parent="."]
 script = ExtResource("6_7o63k")
+FallAcceleration = 1200.0
+MaxFallSpeed = 800.0
 State_ID = "fall"

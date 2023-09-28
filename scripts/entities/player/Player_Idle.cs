@@ -10,8 +10,6 @@ public partial class Player_Idle : PlayerState
 	}
 
 	public override void Enter(){
-		GD.Print("Idle");
-		GD.Print(Body.Check_Ground());
 	}
 
     public override string Operate(double delta)

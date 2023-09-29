@@ -16,11 +16,14 @@ public partial class Player : CharacterBody2D
 			} else if (childMeta.Contains("groundCheck")){
 				GroundCheck = (RayCast2D)child;
 				GroundCheck.CollisionMask = 12;
-			} else if (childMeta.Contains("inputBuffer")){
+			} else if (childMeta.Contains("buffer")){
 				InBuffer = (InputBuffer)child;
 			}
 		}
 		if(Controller == null){
+			QueueFree();
+		}
+		if(InBuffer == null){
 			QueueFree();
 		}
 	}

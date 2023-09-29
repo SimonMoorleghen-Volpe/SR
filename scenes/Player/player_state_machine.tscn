@@ -16,6 +16,7 @@ State_ID = "idle"
 
 [node name="walk" type="Node" parent="."]
 script = ExtResource("3_syvce")
+WalkSpeedMax = 350.0
 State_ID = "walk"
 
 [node name="run" type="Node" parent="."]

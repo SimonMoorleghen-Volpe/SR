@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpxsreab1gn6l"]
+[gd_scene load_steps=6 format=3 uid="uid://bpxsreab1gn6l"]
 
 [ext_resource type="Script" path="res://scripts/entities/player/Player.cs" id="1_g2ybr"]
 [ext_resource type="SpriteFrames" uid="uid://bftfy6ifm85n" path="res://resources/Player/Player_spriteframes.tres" id="1_n867c"]
 [ext_resource type="PackedScene" uid="uid://bfox2i2lxddm5" path="res://scenes/Player/player_state_machine.tscn" id="3_ue2lk"]
+[ext_resource type="Script" path="res://scripts/Control/InputBuffer.cs" id="4_c1xyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brsum"]
 size = Vector2(31, 32)
@@ -43,3 +44,6 @@ collision_mask = 4
 position = Vector2(16, -14)
 target_position = Vector2(0, 28)
 collision_mask = 4
+
+[node name="inputbuffer" type="Node" parent="."]
+script = ExtResource("4_c1xyd")

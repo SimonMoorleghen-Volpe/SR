@@ -9,12 +9,12 @@ public partial class Player_Idle : PlayerState
 		base._Ready();
 	}
 
-	public override void Enter(){
-	}
+
 
     public override string Operate(double delta)
     {
 		if(!Body.Check_Ground()){ return "fall";}
+		if(Input.IsActionPressed("move_left") | Input.IsActionPressed("move_right")){ return "walk"; }
         return null;
     }
 

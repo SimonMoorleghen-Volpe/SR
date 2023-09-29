@@ -25,12 +25,18 @@ public partial class Player_Walk : PlayerState
 			float sum = MathF.Abs((Body.Velocity + Change).X);
 			if(sum >= WalkSpeedMax){
 				Change = (sum - WalkSpeedMax) * Vector2.Left * (float)delta;
+				if(Input.IsActionPressed("run")){
+					return "run";
+				}
 			}
 		} else if(Input.IsActionPressed("move_right")){
 			Change += Vector2.Right * WalkAcceleration * (float)delta;
 			float sum = (Body.Velocity + Change).X;
 			if(sum >= WalkSpeedMax){
 				Change = (sum - WalkSpeedMax) * Vector2.Right * (float)delta;
+				if(Input.IsActionPressed("run")){
+					return "run";
+				}
 			}
 		} else {
 			Change += Body.Velocity.Normalized() * IdleDeceleration * (float)delta * -1;
@@ -42,9 +48,6 @@ public partial class Player_Walk : PlayerState
 			
 		}
 		Body.Velocity += Change;
-		if(Input.IsActionPressed("run")){
-			return "run";
-		}
 		
 		return null;
     }

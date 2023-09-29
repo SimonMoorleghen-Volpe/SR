@@ -11,6 +11,11 @@ public partial class Player_Fall : PlayerState
         FallVector.Y = FallAcceleration;
     }
 
+    public override void init()
+    {
+        Body.Set("FallGravity", FallAcceleration);
+    }
+
     public override string Operate(double delta)
     {
         if(Body.IsOnFloor()){

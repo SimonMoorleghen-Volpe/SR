@@ -16,6 +16,7 @@ public partial class State_Machine : Node {
                 StateDictionary.Add(PlayerStates[i].State_ID, i);
                 PlayerStates[i].Set_Controller(GetOwner<Player>());
                 i++;
+                ((PlayerState)child).init();
             }
         }
         CurrentState = PlayerStates[StateDictionary["idle"]];

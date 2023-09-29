@@ -13,6 +13,7 @@ public partial class PlayerState : Node
 	}
 
 	public void Set_Controller(Player controller){Body = controller;}
+	public virtual void init(){	}
 
 	public virtual void Enter(){}
 

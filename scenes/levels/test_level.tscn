@@ -10,7 +10,7 @@ size = Vector2(1928.5, 20)
 [node name="Node2D" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_440pf")]
-position = Vector2(317, 26)
+position = Vector2(349, -482)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2, 145)

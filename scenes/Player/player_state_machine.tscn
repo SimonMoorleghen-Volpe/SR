@@ -31,4 +31,6 @@ State_ID = "jump"
 script = ExtResource("6_7o63k")
 FallAcceleration = 1200.0
 MaxFallSpeed = 800.0
+MaxDriftSpeed = 250.0
+DriftAcceleration = 150.0
 State_ID = "fall"

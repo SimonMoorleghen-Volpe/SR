@@ -21,11 +21,25 @@ public partial class Player_Fall : PlayerState
         if(Body.IsOnFloor()){
             return "idle";
         }
-
-        Body.Velocity += FallVector * (float)delta;
-        if(Body.Velocity.Y > MaxFallSpeed){
-            Body.Velocity = new Vector2(Body.Velocity.X, MaxFallSpeed);
+        Vector2 change = FallVector;
+        if(Body.Velocity.Y + change.Y > MaxFallSpeed){
+            change.Y = MaxFallSpeed - Body.Velocity.Y;
         }
+        
+        if(Input.IsActionPressed("move_right")){
+            change += Vector2.Right * DriftAcceleration;
+            if(Body.Velocity.X + change.X >= MaxDriftSpeed){
+                change.X = MaxDriftSpeed - Body.Velocity.X;
+            }
+        }   else if(Input.IsActionPressed("move_left")){
+            change += Vector2.Left * DriftAcceleration;
+            if(Math.Abs(Body.Velocity.X + change.X) >= MaxDriftSpeed){
+                change.X = -MaxDriftSpeed - Body.Velocity.X;
+            }
+        }
+
+        Body.Velocity += change * (float)delta;
+
         return null;
     }
 

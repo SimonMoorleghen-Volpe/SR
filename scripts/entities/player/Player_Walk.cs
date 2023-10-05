@@ -9,10 +9,7 @@ public partial class Player_Walk : PlayerState
 		base._Ready();
 	}
 
-    public override void Enter()
-    {
-		GD.Print("walk");
-    }
+    public override void Enter(){    }
 
     public override string Operate(double delta)
     {

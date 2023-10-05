@@ -18,6 +18,8 @@ public partial class Player : CharacterBody2D
 				GroundCheck.CollisionMask = 12;
 			} else if (childMeta.Contains("buffer")){
 				InBuffer = (InputBuffer)child;
+			} else if (childMeta.Contains("crush")){
+				CrushRaycasts[(int)child.GetMeta("crush")] = (RayCast2D)child;
 			}
 		}
 		if(Controller == null){
@@ -34,12 +36,23 @@ public partial class Player : CharacterBody2D
 	{
 		Controller.PlayerProcess(delta);
 		MoveAndSlide();
+		CrushCheck();
 	}
 
     public override void _Input(InputEvent @event)
     {
         Controller.PassInput(@event);
     }
+
+	private void CrushCheck(){
+		if(CrushRaycasts[0].IsColliding() & CrushRaycasts[1].IsColliding()){
+			Die();
+		}
+	}
+
+	public void Die(){
+		QueueFree();
+	}
 
     public float WalkSpeed {get; private set;} = 0f;
 	public float RunSpeed {get; private set;} = 0f;
@@ -51,6 +64,8 @@ public partial class Player : CharacterBody2D
 	private State_Machine Controller;
 	private InputBuffer InBuffer;
 	private RayCast2D GroundCheck;
+	private RayCast2D[] CrushRaycasts = new RayCast2D[4];
+	private RayCast2D[] WallJumpRaycasts = new RayCast2D[2];
 	
 
 }

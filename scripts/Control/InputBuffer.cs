@@ -19,9 +19,16 @@ public partial class InputBuffer : Node
 		AddChild(ClearTimer);
     }
 
-	public void Buffer(InputEvent input){
+	public InputEvent Read(){	return BufferedEvent;	}
+
+	public void Push(InputEvent input){
 		BufferedEvent = input;
 		ClearTimer.Start();
+	}
+
+	public void Pop(){
+		BufferedEvent = null;
+		ClearTimer.Stop();
 	}
 
 	private void ClearBuffer(){

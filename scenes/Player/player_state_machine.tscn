@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfox2i2lxddm5"]
+[gd_scene load_steps=8 format=3 uid="uid://bfox2i2lxddm5"]
 
 [ext_resource type="Script" path="res://scripts/Control/State_Machine.cs" id="1_q5k84"]
 [ext_resource type="Script" path="res://scripts/entities/player/Player_Idle.cs" id="2_b72mj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/entities/player/Player_Run.cs" id="4_xj816"]
 [ext_resource type="Script" path="res://scripts/entities/player/Player_Jump.cs" id="5_2d0ul"]
 [ext_resource type="Script" path="res://scripts/entities/player/Player_Fall.cs" id="6_7o63k"]
+[ext_resource type="Script" path="res://scripts/entities/player/Player_Wall_Jump.cs" id="7_toiff"]
 
 [node name="state machine" type="Node"]
 script = ExtResource("1_q5k84")
@@ -34,3 +35,7 @@ MaxFallSpeed = 800.0
 MaxDriftSpeed = 250.0
 DriftAcceleration = 150.0
 State_ID = "fall"
+
+[node name="wall jump" type="Node" parent="."]
+script = ExtResource("7_toiff")
+State_ID = "wall jump"

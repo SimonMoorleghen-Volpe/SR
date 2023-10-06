@@ -20,6 +20,8 @@ public partial class Player : CharacterBody2D
 				InBuffer = (InputBuffer)child;
 			} else if (childMeta.Contains("crush")){
 				CrushRaycasts[(int)child.GetMeta("crush")] = (RayCast2D)child;
+			} else if (childMeta.Contains("wall")){
+				WallJumpRaycasts[(int)child.GetMeta("wall")] = (RayCast2D)child;
 			}
 		}
 		if(Controller == null){
@@ -41,8 +43,12 @@ public partial class Player : CharacterBody2D
 
     public override void _Input(InputEvent @event)
     {
-        Controller.PassInput(@event);
+        if(!Controller.PassInput(@event)){
+			InBuffer.Push(@event);
+		}
     }
+
+
 
 	private void CrushCheck(){
 		if(CrushRaycasts[0].IsColliding() & CrushRaycasts[1].IsColliding()){

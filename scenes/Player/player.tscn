@@ -38,11 +38,15 @@ metadata/groundCheck = false
 position = Vector2(-17, -14)
 target_position = Vector2(0, 28)
 collision_mask = 4
+hit_from_inside = true
+metadata/wall = 0
 
 [node name="rightwallCheck" type="RayCast2D" parent="."]
 position = Vector2(17, -14)
 target_position = Vector2(0, 28)
 collision_mask = 4
+hit_from_inside = true
+metadata/wall = 1
 
 [node name="inputbuffer" type="Node" parent="."]
 script = ExtResource("4_c1xyd")

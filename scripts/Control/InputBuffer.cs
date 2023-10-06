@@ -4,7 +4,7 @@ using System;
 public partial class InputBuffer : Node
 {
 	[Export]
-	private float ClearTime = 0.2f;
+	private readonly float ClearTime = 0.2f;
 	private Timer ClearTimer;
 	private InputEvent BufferedEvent = null;
 	public override void _Ready()

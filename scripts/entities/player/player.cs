@@ -48,7 +48,15 @@ public partial class Player : CharacterBody2D
 		}
     }
 
-
+	private void CheckBuffer(){
+		InputEvent BufferedAction = InBuffer.Read();
+		if(BufferedAction == null){
+			return;
+		}
+		if(Controller.PassInput(BufferedAction)){
+			InBuffer.Pop();
+		}
+	}
 
 	private void CrushCheck(){
 		if(CrushRaycasts[0].IsColliding() & CrushRaycasts[1].IsColliding()){

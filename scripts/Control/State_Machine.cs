@@ -35,7 +35,7 @@ public partial class State_Machine : Node {
 
     public bool PassInput(InputEvent input){
         string NewState = CurrentState.Take_Input(input);
-        if(NewState == ""){
+        if(NewState == null){
             return false;
         }
         Change_State(NewState);

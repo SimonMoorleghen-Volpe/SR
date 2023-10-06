@@ -4,7 +4,13 @@ using System;
 public partial class Player_Run : PlayerState
 {
 
-
+    public override string Take_Input(InputEvent @event)
+    {
+		if(@event.IsActionPressed("move_up")){
+			return "jump";
+		}
+		return null;
+    }
     public override string Operate(double delta)
     {
         if(!Body.Check_Ground()){

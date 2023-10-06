@@ -8,9 +8,10 @@
 size = Vector2(1928.5, 171)
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(0, -360)
 
 [node name="player" parent="." instance=ExtResource("1_440pf")]
-position = Vector2(488, 297)
+position = Vector2(487, 333)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2, 145)
@@ -24,3 +25,7 @@ shape = SubResource("RectangleShape2D_1enbh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(965, -23)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(400, 208)
+target_position = Vector2(128, 0)

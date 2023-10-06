@@ -18,9 +18,15 @@ public partial class Player_Jump : PlayerState
     {
         if(@event.IsActionReleased("move_up")){
             JumpTimer.Stop();
-            return "fall";
         }
         return null;
+    }
+
+    public override void Exit(){
+        if(Body.Velocity.Y == JumpVector.Y){
+            Body.Velocity -= 0.5f * JumpVector;
+        }
+        
     }
 
     public override void Enter()
@@ -30,7 +36,7 @@ public partial class Player_Jump : PlayerState
     }
     public override string Operate(double delta)
     {
-        if(Body.Velocity.Y <= 0 | JumpTimer.TimeLeft == 0){
+        if(Body.Velocity.Y >= 0 | JumpTimer.TimeLeft == 0){
             return "fall";
         }
         return null;

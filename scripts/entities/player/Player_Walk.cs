@@ -11,6 +11,14 @@ public partial class Player_Walk : PlayerState
 
     public override void Enter(){    }
 
+    public override string Take_Input(InputEvent @event)
+    {
+		if(@event.IsActionPressed("move_up")){
+			return "jump";
+		}
+		return null;
+    }
+
     public override string Operate(double delta)
     {
 		if(!Body.Check_Ground()){

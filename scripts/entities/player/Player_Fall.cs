@@ -19,8 +19,15 @@ public partial class Player_Fall : PlayerState
     public override string Operate(double delta)
     {
         if(Body.IsOnFloor()){
+            if(Input.IsActionPressed("run")){
+                return "run";
+            }
+            if(Body.Velocity.X != 0){
+                return "walk";
+            }
             return "idle";
         }
+
         Vector2 change = FallVector;
         if(Body.Velocity.Y + change.Y > MaxFallSpeed){
             change.Y = MaxFallSpeed - Body.Velocity.Y;

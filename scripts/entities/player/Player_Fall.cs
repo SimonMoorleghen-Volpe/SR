@@ -18,7 +18,7 @@ public partial class Player_Fall : PlayerState
 
     public override string Operate(double delta)
     {
-        if(Body.IsOnFloor()){
+        if(Body.Check_Ground()){
             if(Input.IsActionPressed("run")){
                 return "run";
             }

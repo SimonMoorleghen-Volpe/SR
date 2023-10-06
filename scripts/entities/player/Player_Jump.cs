@@ -24,7 +24,7 @@ public partial class Player_Jump : PlayerState
 
     public override void Exit(){
         if(Body.Velocity.Y == JumpVector.Y){
-            Body.Velocity -= 0.5f * JumpVector;
+            Body.Velocity -= 0.6f * JumpVector;
         }
         
     }
@@ -32,6 +32,7 @@ public partial class Player_Jump : PlayerState
     public override void Enter()
     {
         JumpTimer.Start();
+        Body.Velocity *= Vector2.Right;
         Body.Velocity += JumpVector;
     }
     public override string Operate(double delta)

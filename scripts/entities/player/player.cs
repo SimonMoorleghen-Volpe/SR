@@ -34,8 +34,9 @@ public partial class Player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		CheckBuffer();
+		
 		Controller.PlayerProcess(delta);
+		CheckBuffer();
 		MoveAndSlide();
 		CrushCheck();
 	}

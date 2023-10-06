@@ -9,7 +9,7 @@ public partial class Player_Walk : PlayerState
 		base._Ready();
 	}
 
-    public override void Enter(){    }
+    public override void Enter(){	}
 
     public override string Take_Input(InputEvent @event)
     {
@@ -44,7 +44,7 @@ public partial class Player_Walk : PlayerState
 				}
 			}
 		} else {
-			Change += Body.Velocity.Normalized() * IdleDeceleration * (float)delta * -1;
+			Change += Body.Velocity.Normalized() * Vector2.Left * IdleDeceleration * (float)delta;
 			if(Math.Abs(Change.X) > Math.Abs(Body.Velocity.X)){
 				Change.X = -Body.Velocity.X;
 				Body.Velocity += Change;

@@ -3,15 +3,37 @@ using System;
 
 public partial class Player_Jump : PlayerState
 {
-
     public override void _Ready()
     {
         base._Ready();
-        JumpVector = new(){X=0, Y=JumpHeight/JumpTime};
+        JumpVector = new(){X=0, Y=JumpHeight/JumpTime * -1};
         JumpTimer = new(){
             OneShot=true,
             WaitTime=JumpTime
         };
+        AddChild(JumpTimer);
+    }
+
+    public override string Take_Input(InputEvent @event)
+    {
+        if(@event.IsActionReleased("move_up")){
+            JumpTimer.Stop();
+            return "fall";
+        }
+        return null;
+    }
+
+    public override void Enter()
+    {
+        JumpTimer.Start();
+        Body.Velocity += JumpVector;
+    }
+    public override string Operate(double delta)
+    {
+        if(Body.Velocity.Y <= 0 | JumpTimer.TimeLeft == 0){
+            return "fall";
+        }
+        return null;
     }
 
     [Export]

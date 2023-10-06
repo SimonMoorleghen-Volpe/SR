@@ -18,4 +18,12 @@ public partial class Player_Idle : PlayerState
         return null;
     }
 
+    public override string Take_Input(InputEvent @event)
+    {
+		if(@event.IsActionPressed("move_up")){
+			return "jump";
+		}
+		return null;
+    }
+
 }

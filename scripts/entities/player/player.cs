@@ -32,10 +32,9 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
-	public bool Check_Ground(){	if(GroundCheck.IsColliding()){return true;}	return false; }
-
 	public override void _PhysicsProcess(double delta)
 	{
+		CheckBuffer();
 		Controller.PlayerProcess(delta);
 		MoveAndSlide();
 		CrushCheck();
@@ -57,13 +56,12 @@ public partial class Player : CharacterBody2D
 			InBuffer.Pop();
 		}
 	}
-
+	public bool Check_Ground(){	if(GroundCheck.IsColliding()){return true;}	return false; }
 	private void CrushCheck(){
 		if(CrushRaycasts[0].IsColliding() & CrushRaycasts[1].IsColliding()){
 			Die();
 		}
 	}
-
 	public void Die(){
 		QueueFree();
 	}

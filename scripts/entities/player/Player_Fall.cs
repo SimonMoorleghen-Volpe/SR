@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using System.ComponentModel.DataAnnotations;
+using HelperFuncs;
 
 public partial class Player_Fall : PlayerState
 {
@@ -35,12 +35,12 @@ public partial class Player_Fall : PlayerState
         
         if(Input.IsActionPressed("move_right")){
             change += Vector2.Right * DriftAcceleration;
-            if(Body.Velocity.X + change.X >= MaxDriftSpeed){
+            if(Help.CheckSign(Body.Velocity.X, change.X) & Body.Velocity.X + change.X >= MaxDriftSpeed){
                 change.X = MaxDriftSpeed - Body.Velocity.X;
             }
         }   else if(Input.IsActionPressed("move_left")){
             change += Vector2.Left * DriftAcceleration;
-            if(Math.Abs(Body.Velocity.X + change.X) >= MaxDriftSpeed){
+            if(Help.CheckSign(Body.Velocity.X, change.X) & Math.Abs(Body.Velocity.X + change.X) >= MaxDriftSpeed){
                 change.X = -MaxDriftSpeed - Body.Velocity.X;
             }
         }

@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bfox2i2lxddm5" path="res://scenes/Player/player_state_machine.tscn" id="3_ue2lk"]
 [ext_resource type="Script" path="res://scripts/Control/InputBuffer.cs" id="4_c1xyd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wlb1u"]
-radius = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhmc8"]
+size = Vector2(32, 32)
 
 [node name="player" type="CharacterBody2D"]
 collision_mask = 12
@@ -24,7 +24,7 @@ frame = 9
 frame_progress = 1.0
 
 [node name="collider" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_wlb1u")
+shape = SubResource("RectangleShape2D_yhmc8")
 
 [node name="state machine" parent="." instance=ExtResource("3_ue2lk")]
 

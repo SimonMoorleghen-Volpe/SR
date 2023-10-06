@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using HelperFuncs;
 
 public partial class Player_Jump : PlayerState
 {
@@ -40,6 +41,19 @@ public partial class Player_Jump : PlayerState
         if(Body.Velocity.Y >= 0 | JumpTimer.TimeLeft == 0){
             return "fall";
         }
+        Vector2 change = Vector2.Zero;
+        if(Input.IsActionPressed("move_right")){
+            change += Vector2.Right * DriftAcceleration;
+            if(Help.CheckSign(Body.Velocity.X, change.X) & Body.Velocity.X + change.X >= MaxDriftSpeed){
+                change.X = MaxDriftSpeed - Body.Velocity.X;
+            }
+        }   else if(Input.IsActionPressed("move_left")){
+            change += Vector2.Left * DriftAcceleration;
+            if(Help.CheckSign(Body.Velocity.X, change.X) & Math.Abs(Body.Velocity.X + change.X) >= MaxDriftSpeed){
+                change.X = -MaxDriftSpeed - Body.Velocity.X;
+            }
+        }
+
         return null;
     }
 
@@ -49,4 +63,8 @@ public partial class Player_Jump : PlayerState
     private float JumpHeight = 500;
     private Vector2 JumpVector;
     private Timer JumpTimer;
+    [Export]
+    private float MaxDriftSpeed = 150;
+    [Export]
+    private float DriftAcceleration = 50;
 }

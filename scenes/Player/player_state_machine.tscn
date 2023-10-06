@@ -28,6 +28,7 @@ State_ID = "run"
 script = ExtResource("5_2d0ul")
 JumpTime = 0.25
 JumpHeight = 150.0
+DriftAcceleration = 100.0
 State_ID = "jump"
 
 [node name="fall" type="Node" parent="."]

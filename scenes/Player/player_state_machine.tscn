@@ -26,19 +26,25 @@ State_ID = "run"
 
 [node name="jump" type="Node" parent="."]
 script = ExtResource("5_2d0ul")
-JumpTime = 0.25
+JumpTime = 0.2
 JumpHeight = 150.0
-DriftAcceleration = 100.0
+MaxDriftSpeed = 350.0
+DriftAcceleration = 200.0
 State_ID = "jump"
 
 [node name="fall" type="Node" parent="."]
 script = ExtResource("6_7o63k")
-FallAcceleration = 1200.0
-MaxFallSpeed = 800.0
-MaxDriftSpeed = 250.0
-DriftAcceleration = 150.0
+FallAcceleration = 1600.0
+MaxFallSpeed = 1000.0
+MaxDriftSpeed = 350.0
+DriftAcceleration = 200.0
 State_ID = "fall"
 
 [node name="wall jump" type="Node" parent="."]
 script = ExtResource("7_toiff")
+WallJumpX = 200.0
+JumpTime = 0.15
+JumpHeight = 75.0
+MaxDriftSpeed = 350.0
+DriftAcceleration = 200.0
 State_ID = "wall jump"

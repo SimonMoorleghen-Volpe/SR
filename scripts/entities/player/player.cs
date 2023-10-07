@@ -58,6 +58,14 @@ public partial class Player : CharacterBody2D
 		}
 	}
 	public bool Check_Ground(){	if(GroundCheck.IsColliding()){return true;}	return false; }
+	public int Check_Walls(){
+		for(int i = 0; i < WallJumpRaycasts.Length; i++){
+			if(WallJumpRaycasts[i].IsColliding()){
+				return i;
+			}
+		}
+		return -1;
+	}
 	private void CrushCheck(){
 		if(CrushRaycasts[0].IsColliding() & CrushRaycasts[1].IsColliding()){
 			Die();

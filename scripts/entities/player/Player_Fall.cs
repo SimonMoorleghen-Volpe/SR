@@ -16,6 +16,17 @@ public partial class Player_Fall : PlayerState
         Body.Set("FallGravity", FallAcceleration);
     }
 
+    public override string Take_Input(InputEvent @event)
+    {
+        if(@event.IsActionPressed("move_up")){
+            int i = Body.Check_Walls();
+            if((i == 0 & Input.IsActionPressed("move_left")) | (i == 1 & Input.IsActionPressed("move_right"))){
+                return "wall jump";
+            }
+        }
+        return null;
+    }
+
     public override string Operate(double delta)
     {
         if(Body.Check_Ground()){

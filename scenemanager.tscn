@@ -4,3 +4,4 @@
 
 [node name="scenemanager" type="Node"]
 script = ExtResource("1_8ojjn")
+metadata/scenemanager = false

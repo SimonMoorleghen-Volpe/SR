@@ -8,4 +8,8 @@ public partial class scenemanager : Node
 	{
 	}
 
+	public void ChangeScene(string TargetScene){
+
+	}
+
 }

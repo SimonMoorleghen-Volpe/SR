@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://ctlso07ltbdhi"]
+[gd_scene load_steps=2 format=3 uid="uid://ctlso07ltbdhi"]
+
+[ext_resource type="Script" path="res://scripts/UI and Navigation/Button_Scene_Change.cs" id="1_gai6n"]
 
 [node name="Button_Scene_Change" type="Button"]
+script = ExtResource("1_gai6n")

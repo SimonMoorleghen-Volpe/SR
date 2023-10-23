@@ -3,4 +3,7 @@
 [ext_resource type="Script" path="res://scripts/UI and Navigation/Button_Scene_Change.cs" id="1_gai6n"]
 
 [node name="Button_Scene_Change" type="Button"]
+custom_minimum_size = Vector2(64, 24)
+offset_right = 64.0
+offset_bottom = 24.0
 script = ExtResource("1_gai6n")

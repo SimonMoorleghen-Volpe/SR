@@ -14,7 +14,8 @@ public partial class Player_Wall_Jump : Player_Jump
     {
         JumpTimer.Start();
         Body.Velocity *= Vector2.Right;
-		if(Input.IsActionPressed("move_left")){
+        int i = Body.Check_Walls();
+		if(i==0){
 			Body.Velocity += JumpVector;
 			return;
 		}

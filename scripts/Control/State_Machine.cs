@@ -24,9 +24,13 @@ public partial class State_Machine : Node {
 
     private void Change_State(string NewState){
         if(NewState == null){  return;  }
+
         if(!StateDictionary.ContainsKey(NewState)){
             return;
         }
+
+        
+
         CurrentState.Exit();
         CurrentState = PlayerStates[StateDictionary[NewState]];
         CurrentState.Enter();

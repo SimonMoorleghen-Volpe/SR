@@ -38,7 +38,7 @@ public partial class Player_Jump : PlayerState
     }
     public override string Operate(double delta)
     {
-        if(Body.Velocity.Y >= 0 | JumpTimer.TimeLeft == 0){
+        if(Body.Velocity.Y >= 0 | JumpTimer.TimeLeft <= 0){
             return "fall";
         }
         Vector2 change = Vector2.Zero;

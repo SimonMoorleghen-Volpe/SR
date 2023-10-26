@@ -18,12 +18,6 @@ public partial class Player_Fall : PlayerState
 
     public override string Take_Input(InputEvent @event)
     {
-        if(@event.IsActionPressed("move_up")){
-            int i = Body.Check_Walls();
-            if((i == 0 & Input.IsActionPressed("move_left")) | (i == 1 & Input.IsActionPressed("move_right"))){
-                return "wall jump";
-            }
-        }
         return null;
     }
 
@@ -39,24 +33,29 @@ public partial class Player_Fall : PlayerState
             return "idle";
         }
 
-        Vector2 change = FallVector;
+        int i = Body.Check_Walls();
+        if((i == 0 & Input.IsActionPressed("move_left")) | (i == 1 & Input.IsActionPressed("move_right"))){
+            return "wall slide";
+        }
+
+        Vector2 change = FallVector * (float)delta;
         if(Body.Velocity.Y + change.Y > MaxFallSpeed){
-            change.Y = MaxFallSpeed - Body.Velocity.Y;
+            change.Y = Math.Clamp(MaxFallSpeed - Body.Velocity.Y, 0, FallAcceleration);
         }
         
         if(Input.IsActionPressed("move_right")){
-            change += Vector2.Right * DriftAcceleration;
+            change.X += DriftAcceleration * (float)delta;
             if(Help.CheckSign(Body.Velocity.X, change.X) & Body.Velocity.X + change.X >= MaxDriftSpeed){
-                change.X = MaxDriftSpeed - Body.Velocity.X;
+                change.X = Math.Clamp((MaxDriftSpeed - Body.Velocity.X) * (float)delta, 0, DriftAcceleration);
             }
         }   else if(Input.IsActionPressed("move_left")){
-            change += Vector2.Left * DriftAcceleration;
+            change.X -=  DriftAcceleration * (float)delta;
             if(Help.CheckSign(Body.Velocity.X, change.X) & Math.Abs(Body.Velocity.X + change.X) >= MaxDriftSpeed){
-                change.X = -MaxDriftSpeed - Body.Velocity.X;
+                change.X = Math.Clamp((-MaxDriftSpeed - Body.Velocity.X) * (float)delta, -DriftAcceleration, 0);
             }
         }
 
-        Body.Velocity += change * (float)delta;
+        Body.Velocity += change;
 
         return null;
     }
@@ -69,5 +68,5 @@ public partial class Player_Fall : PlayerState
     private float MaxDriftSpeed = 150;
     [Export]
     private float DriftAcceleration = 50;
-    private Vector2 FallVector = new();
+    private Vector2 FallVector = new(x:0, y:0);
 }

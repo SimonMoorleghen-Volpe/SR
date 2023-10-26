@@ -52,4 +52,5 @@ State_ID = "wall jump"
 
 [node name="wall slide" type="Node" parent="."]
 script = ExtResource("8_ytpna")
+WallSlideAccel = 200.0
 State_ID = "wall slide"

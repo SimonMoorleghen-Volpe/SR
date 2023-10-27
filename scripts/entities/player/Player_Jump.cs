@@ -35,6 +35,7 @@ public partial class Player_Jump : PlayerState
         JumpTimer.Start();
         Body.Velocity *= Vector2.Right;
         Body.Velocity += JumpVector;
+        Body.Play_Animation("jump");
     }
     public override string Operate(double delta)
     {

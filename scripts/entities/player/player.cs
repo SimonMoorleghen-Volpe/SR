@@ -22,6 +22,8 @@ public partial class Player : CharacterBody2D
 				CrushRaycasts[(int)child.GetMeta("crush")] = (RayCast2D)child;
 			} else if (childMeta.Contains("wall")){
 				WallJumpRaycasts[(int)child.GetMeta("wall")] = (RayCast2D)child;
+			} else if (childMeta.Contains("sprite")){
+				Sprite = (AnimatedSprite2D)child;
 			}
 		}
 		if(Controller == null){
@@ -36,7 +38,7 @@ public partial class Player : CharacterBody2D
 	{
 		
 		Controller.PlayerProcess(delta);
-		CheckBuffer();
+		Check_Buffer();
 		MoveAndSlide();
 		CrushCheck();
 	}
@@ -48,7 +50,7 @@ public partial class Player : CharacterBody2D
 		}
     }
 
-	private void CheckBuffer(){
+	private void Check_Buffer(){
 		InputEvent BufferedAction = InBuffer.Read();
 		if(BufferedAction == null){
 			return;
@@ -75,6 +77,10 @@ public partial class Player : CharacterBody2D
 		QueueFree();
 	}
 
+	public void Play_Animation(string anim){
+		Sprite.Play(anim);
+	}
+
     public float WalkSpeed {get; private set;} = 0f;
 	public float RunSpeed {get; private set;} = 0f;
 	public float JumpVelocity {get; private set;} = 0f;
@@ -87,6 +93,7 @@ public partial class Player : CharacterBody2D
 	private RayCast2D GroundCheck;
 	private RayCast2D[] CrushRaycasts = new RayCast2D[4];
 	private RayCast2D[] WallJumpRaycasts = new RayCast2D[2];
+	private AnimatedSprite2D Sprite;
 	
 
 }

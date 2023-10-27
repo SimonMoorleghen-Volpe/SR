@@ -22,6 +22,7 @@ animation = &"jump"
 autoplay = "default"
 frame = 9
 frame_progress = 1.0
+metadata/sprite = false
 
 [node name="collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yhmc8")

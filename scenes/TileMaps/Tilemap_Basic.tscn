@@ -2,6 +2,6 @@
 
 [ext_resource type="TileSet" uid="uid://ct2v55qk0gtiu" path="res://resources/Tilesets/basic.tres" id="1_difm4"]
 
-[node name="Tilemap_Basic" type="TileMap"]
+[node name="tilemap" type="TileMap"]
 tile_set = ExtResource("1_difm4")
 format = 2

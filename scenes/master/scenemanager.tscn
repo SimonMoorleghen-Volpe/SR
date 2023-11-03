@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://dq11nu8tgfrby"]
 
-[ext_resource type="Script" path="res://scripts/UI and Navigation/scenemanager.cs" id="1_8ojjn"]
+[ext_resource type="Script" path="res://scripts/master/scenemanager.cs" id="1_khphg"]
 
 [node name="scenemanager" type="Node"]
-script = ExtResource("1_8ojjn")
+script = ExtResource("1_khphg")
 metadata/scenemanager = false

@@ -1,4 +1,5 @@
 using System;
+using Godot;
 
 namespace HelperFuncs{
     public static class Help{
@@ -8,5 +9,6 @@ namespace HelperFuncs{
             }
             return false;
         }
+
     }
 }

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdxm5bdccghb1"]
+
+[ext_resource type="Script" path="res://scripts/Levels/Level_Section.cs" id="1_vpdn2"]
+[ext_resource type="PackedScene" uid="uid://efv2pb4vt2xs" path="res://scenes/TileMaps/Tilemap_Basic.tscn" id="2_f1cdu"]
+
+[node name="level_base" type="Node2D"]
+script = ExtResource("1_vpdn2")
+
+[node name="connector" type="Node2D" parent="."]
+
+[node name="tilemap" parent="." instance=ExtResource("2_f1cdu")]

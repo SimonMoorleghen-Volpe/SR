@@ -18,9 +18,14 @@ public partial class Level_Section : Node2D
 		}
 	}
 
+	public Vector2 GetConnection(){
+		return EndPoint;
+	}
+
 	[Export]
 	public float BaseScore {get; private set;} = 100;
 	[Export]
 	public float BaseTime {get; private set;} = 5;
 	public Vector2 EndPoint = Vector2.Zero;
+
 }

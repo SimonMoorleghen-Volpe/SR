@@ -4,3 +4,6 @@
 
 [node name="level_generator" type="Node"]
 script = ExtResource("1_3t8dp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, -88)

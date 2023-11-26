@@ -10,8 +10,8 @@ public partial class Button_Scene_Change : Button
 
 	private void ChangeScene(){
 		foreach(Node child in GetTree().Root.GetChildren()){
-			if(child.HasMeta("scenemanager")){
-				((scenemanager)child).ChangeScene(TargetScene);
+			if(child.HasMeta("GameManager")){
+				((GameManager)child).ChangeScene(TargetScene);
 				return;
 			}
 		}

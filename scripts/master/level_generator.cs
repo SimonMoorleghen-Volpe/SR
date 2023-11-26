@@ -12,7 +12,6 @@ public partial class level_generator : Node
 		GlobalData Global = GetNode<GlobalData>("/root/GlobalData");
 
 		rand = new(Global.GetSeed());
-		GD.Print(Global.GetSeed());
 		var Levels = LevelsJson.Data;
 		LevelsLists = Levels.AsGodotDictionary();
 		Node2D level = new();
@@ -40,7 +39,6 @@ public partial class level_generator : Node
 		int len = ((Godot.Collections.Array)LevelsLists[List]).Count;
 
 		String selection = (string)((Godot.Collections.Array)LevelsLists[List])[rand.Next(len)];
-		GD.Print(selection);
 		return PathFront + selection + PathEnd;
 	}
 
